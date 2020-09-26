@@ -43,18 +43,18 @@ class _TransactionUserState extends State<TransactionUser> {
     });
   }
 
-  _removeTransaction(String id) {
-    setState(() {
-      _transactions.removeWhere((_transactions) => _transactions.id == id);
-    });
-  }
+  // _removeTransaction(String id) {
+  //   setState(() {
+  //     _transactions.removeWhere((_transactions) => _transactions.id == id);
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
         TransactionForm(_addTransaction),
-        TransactionList(_transactions, _removeTransaction),
+        TransactionList(_transactions),
       ],
     );
   }
