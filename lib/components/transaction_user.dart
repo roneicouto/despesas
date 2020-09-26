@@ -13,7 +13,7 @@ class _TransactionUserState extends State<TransactionUser> {
   final _transactions = [
     Transaction(
       id: 't1',
-      title: 'Tenis',
+      title: 'Tenis TU',
       value: 310.50,
       date: DateTime.now(),
     ),
@@ -43,12 +43,18 @@ class _TransactionUserState extends State<TransactionUser> {
     });
   }
 
+  _removeTransaction(String id) {
+    setState(() {
+      _transactions.removeWhere((_transactions) => _transactions.id == id);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
         TransactionForm(_addTransaction),
-        TransactionList(_transactions),
+        TransactionList(_transactions, _removeTransaction),
       ],
     );
   }

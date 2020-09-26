@@ -6,6 +6,7 @@ import './models/transaction.dart';
 import './components/transaction_form.dart';
 import './components/transaction_list.dart';
 import './components/chart.dart';
+//import './components/transaction_user.dart';
 
 class MyHomePage extends StatefulWidget {
   //final _transactions = [];
@@ -18,7 +19,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _transactions = [
     Transaction(
       id: 't1',
-      title: 'Tenis',
+      title: 'Tenis HOME',
       value: 310.50,
       date: DateTime.now().subtract(Duration(days: 3)),
     ),
@@ -35,6 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
       date: DateTime.now().subtract(Duration(days: 2)),
     ),
   ];
+  //final void Function(String) onRemove;
 
   _addTransaction(String title, double value, DateTime date) {
     final newTransaction = Transaction(
@@ -49,6 +51,12 @@ class _MyHomePageState extends State<MyHomePage> {
 //garante o fechamento do MODAL após o lançamento
     Navigator.of(context).pop();
   }
+
+  // _removeTransaction(String id) {
+  //   setState(() {
+  //     _transactions.removeWhere((id) => _transactions.id == id);
+  //   });
+  // }
 
   _openTransactionsFormModal(BuildContext context) {
     showModalBottomSheet(
